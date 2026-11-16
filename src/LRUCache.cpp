@@ -69,11 +69,9 @@ void LRUCache::put(int key, int value)
         // get It 
         auto listIt = lru.end();
         --listIt;  // points to the last node [tail] lruList<pair>
-
-        int key = listIt->first;  // returns key 
         
          // remove pair <key , value>  from cache
-        cacheMap.erase(key); 
+        cacheMap.erase(listIt->first);  // returns key 
 
         // remove pair<key, value> form lruList
         lru.pop_back();  
