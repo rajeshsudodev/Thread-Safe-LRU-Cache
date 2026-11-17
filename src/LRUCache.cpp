@@ -100,7 +100,7 @@ void LRUCache::put(int key, int value)
  6. Return the saved value.
  */
 
-int LRUCache:: get(int key)
+std:: optional<int> LRUCache:: get(int key)
 {
     // get It
     auto mapIt = cacheMap.find(key);
@@ -108,8 +108,8 @@ int LRUCache:: get(int key)
     // if key not exists in cacheMap 
     if(mapIt == cacheMap.end())
     {   
-        cout << "key not found\n";
-        return -1;
+        // cout << "key not found\n";
+        return std::nullopt;
     }
 
     // If key exists 

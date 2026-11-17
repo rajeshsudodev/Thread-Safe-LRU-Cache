@@ -4,7 +4,7 @@
 #include <list> // Doubly Linked List 
 #include <unordered_map> // HashMap
 #include <utility>   // std:: pair
-
+#include <optional>
 
 // LRU Cache = Fixed Capacity + Recency Tracking + Eviction
 /**
@@ -38,7 +38,7 @@ public:
      * Successfully lookup updates key's recency order.
      * Return -1 when the key does not found.
      */
-    int get (int key);
+    std:: optional<int> get (int key);
 
     /**
      * Insert new key-pair or updates existing key 
