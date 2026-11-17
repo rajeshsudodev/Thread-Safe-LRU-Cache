@@ -67,8 +67,8 @@ void LRUCache::put(int key, int value)
     if(cacheMap.size() == capacity_)
     {
         // get It 
-        auto listIt = lru.end();
-        --listIt;  // points to the last node [tail] lruList<pair>
+        auto listIt = --(lru.end());
+        // --listIt;  // points to the last node [tail] lruList<pair>
         
          // remove pair <key , value>  from cache
         cacheMap.erase(listIt->first);  // returns key 

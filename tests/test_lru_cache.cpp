@@ -15,7 +15,7 @@ TEST(LRUCacheTest, ReturnsInsertedValue)
      */
 
     //  Arrange
-    LRUCache cache(2);
+    LRUCache cache(3);
 
     // Act
     cache.put(10, 100);
