@@ -15,9 +15,9 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)  # new
 
 
 # add_exectuable should be below the C++ standard configuration
-add_executable(lru_cache 
+add_executable(lru_cache
         include/LRUCache.h
-        # src/LRUCache.cpp 
+        # src/LRUCache.cpp
         src/main.cpp
 )
 
@@ -25,6 +25,10 @@ target_include_directories(lru_cache PRIVATE include)  # new
 
 # Enable testing
 enable_testing()
+
+
+find_package(Threads REQUIRED)
+find_package(GTest REQUIRED)
 
 # GoogleTest executable
 add_executable(lru_cache_tests
@@ -35,12 +39,15 @@ add_executable(lru_cache_tests
 target_include_directories(lru_cache_tests PRIVATE include)
 
 
-find_package(GTest REQUIRED)
-
 # Link GoogleTest
 target_link_libraries(lru_cache_tests
-    PRIVATE
-    GTest::gtest_main
+PRIVATE
+GTest::gtest_main
+Threads::Threads
+)
+target_link_libraries(lru_cache
+PRIVATE
+Threads::Threads
 )
 
 # Enable automatic test discovery
@@ -56,4 +63,4 @@ gtest_discover_tests(lru_cache_tests)
 # CMAKE_CXX_STANDARD 17	            Requests C++17
 # CMAKE_CXX_STANDARD_REQUIRED ON	Prevents falling back to an older standard
 # CMAKE_CXX_EXTENSIONS OFF	        Requests standard C++17 rather than GNU extensions
-# target_include_directories        include headers 
+# target_include_directories        include headers
