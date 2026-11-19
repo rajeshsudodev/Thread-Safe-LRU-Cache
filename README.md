@@ -246,7 +246,7 @@ The test suite currently contains 27 test cases covering:
 22. Independent cache instances operating concurrently.
 23. Concurrent operations completing without deadlock.
 
-# Additional tests cover the individual functional and generic behaviours listed above.
+
 
 ### ThreadSanitizer Validation
 
@@ -292,7 +292,7 @@ ctest --test-dir build-tsan --output-on-failure
 
 ### Stage 2 — Thread Safety using `std::mutex`
 
-**Status: Concurrent validation completed; documentation and publishing in progress.**
+<!-- **Status: Concurrent validation completed; documentation and publishing in progress.** -->
 
 - Introduced per-instance mutex synchronization.
 - Protected shared mutable state.
@@ -301,13 +301,6 @@ ctest --test-dir build-tsan --output-on-failure
 - Executed tests under ThreadSanitizer.
 - Completed reliability testing.
 
-Remaining work:
-
-- Finalize documentation.
-- Review the complete Git diff.
-- Perform final build and test validation.
-- Commit and push Stage 2 changes.
-- Create and push the Stage 2 Git tag.
 
 ### Future Enhancements
 
